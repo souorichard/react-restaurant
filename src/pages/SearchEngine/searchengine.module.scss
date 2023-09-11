@@ -1,0 +1,27 @@
+@import 'styles/variables.scss';
+
+.searchengine {
+    width: 400px;
+    height: 42px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    background-color: white;
+    border-radius: 4px;
+
+    input {
+        width: 100%;
+        background-color: white;
+        border: none;
+        outline: none;
+
+        font-size: 1rem;
+        font-weight: normal;
+
+        &::placeholder {
+            color: #989898;
+        }
+    }
+}
