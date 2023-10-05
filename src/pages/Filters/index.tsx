@@ -1,11 +1,16 @@
 import styles from "./filters.module.scss";
 import filters from "./filters.json";
 
-type Options = (typeof filters)[0];
+type Option = (typeof filters)[0];
 
-export function Filters() {
-  function selectFilter() {
-    console.log("filtrou");
+type FilterProps = {
+  filter: number | null;
+  setFilter: React.Dispatch<React.SetStateAction<number | null>>;
+}
+
+export function Filters({ filter, setFilter }: FilterProps) {
+  function selectFilter(option: Option) {
+    return setFilter(option.id);
   }
 
   return (
@@ -13,12 +18,13 @@ export function Filters() {
       {filters.map((option) => (
         <button
           key={option.id}
-          onClick={selectFilter}
-          className={styles.filters__button}
+          onClick={() => selectFilter(option)}
+          className={`${styles.filters__button} ${filter === option.id ? styles['filters__button--active'] : ""}`}
         >
           {option.label}
         </button>
-      ))}
-    </div>
+      ))
+      }
+    </div >
   );
 }

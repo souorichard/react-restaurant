@@ -25,10 +25,13 @@
       background-color: #d73b3b;
       color: white;
     }
+
     &:hover {
-      opacity: 0.75;
+      background-color: #d73b3b;
       transition: ease-out 200ms;
       cursor: pointer;
+
+      color: white;
     }
   }
 }
